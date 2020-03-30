@@ -7,8 +7,6 @@
    {
       public function __construct($message, $code) 
       {
-         $this->message = $message;
-
          switch ($code) {
             case 401:
                Response::unauthorized();
