@@ -20,6 +20,8 @@
    require "services/email.service.php";
    require "services/request.service.php";
    require "services/response.service.php";
+   require "services/error.service.php";
+   require "services/authConnect.service.php";
 
    require "templates/email/account-created.email.php";
    require "templates/email/forgot-password.php";
@@ -29,11 +31,4 @@
 
 
    use Router\Router as Router;
-
    $router = new Router();
-   $router->listen();
-
-
-
-
-

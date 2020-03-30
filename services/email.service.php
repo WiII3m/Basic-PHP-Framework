@@ -42,38 +42,26 @@
 
       public function send()
       {
-         try 
-         {
-            global $smtp;
+         global $smtp;
 
-            $mail = new PHPMailer(true);
+         $mail = new PHPMailer(true);
 
-            $mail->isSMTP();
-            $mail->Host       = $smtp['host'];
-            $mail->SMTPAuth   = true; 
-            $mail->Username   = $smtp['username'];
-            $mail->Password   = $smtp['password'];
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port       = $smtp['port'];
-            $mail->CharSet    = 'UTF-8';
+         $mail->isSMTP();
+         $mail->Host       = $smtp['host'];
+         $mail->SMTPAuth   = true; 
+         $mail->Username   = $smtp['username'];
+         $mail->Password   = $smtp['password'];
+         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+         $mail->Port       = $smtp['port'];
+         $mail->CharSet    = 'UTF-8';
 
-            $mail->setFrom($smtp['from']['email'], $smtp['from']['name']);
-            $mail->addAddress($this->recipient);
+         $mail->setFrom($smtp['from']['email'], $smtp['from']['name']);
+         $mail->addAddress($this->recipient);
 
-            $mail->isHTML(true);
-            $mail->Subject = $this->subject;
-            $mail->Body    = $this->body;
+         $mail->isHTML(true);
+         $mail->Subject = $this->subject;
+         $mail->Body    = $this->body;
 
-            $mail->send();
-
-            return true;
-         } 
-         catch (Exception $e) 
-         {  
-
-            print_r($e);
-            exit;
-            return false;
-         }
+         return $mail->send();
       }
    }

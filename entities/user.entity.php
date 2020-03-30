@@ -1,9 +1,6 @@
 <?php
    namespace UserEntity;
 
-   use Exception;
-   use UserValidator\UserValidator as Validator;
-
    class UserEntity
    {
       public $id;

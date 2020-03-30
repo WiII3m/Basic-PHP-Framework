@@ -49,7 +49,7 @@
       public static function notFound()
       {
          http_response_code(404);
-         echo json_encode(self::getErrorMessage('Route not found'));
+         echo json_encode(self::getErrorMessage('not found'));
          die;
       }
 
@@ -64,7 +64,7 @@
       }
 
       /**
-      * Return HTTP 409 response.
+      * Return HTTP 409,
       */ 
       public static function conflict($message)
       {
